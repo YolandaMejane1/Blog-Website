@@ -14,6 +14,9 @@ const app = express(); //creating the express for routers and API endpoints
 connectDB();//Mongo connecting point
 
 app.use(express.json());//this is express middleware
+//this fetches routes using the api base path
+const postRoutes = require('./routes/users.routes');
+app.use('/api/posts', postRoutes);
 
 //Testing routes
 app.get("/",(req, res) => {
@@ -21,7 +24,7 @@ app.get("/",(req, res) => {
 });
 
 //starting server
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

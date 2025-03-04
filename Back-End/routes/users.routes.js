@@ -4,8 +4,11 @@ const Post = require("./models/Post");
 
 //this code is for creating a new blog post and i have integrated a try catch error handler
 router.post("/", async (req, res) => {
+    const { title, content, author } = req.body;
+    if (!title || !content) {
+      return res.status(400).json({ error: "Title and content are required" });
+    }
     try {
-      const { title, content, author } = req.body;
       const newPost = await new Post({ title, content, author }).save();
       res.status(201).json({ message: "Post created", post: newPost });
     } catch (err) {
