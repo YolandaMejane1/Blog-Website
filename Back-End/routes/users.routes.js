@@ -1,12 +1,12 @@
-const express = require("express");
-const router = express.Router();
-const Post = require("./models/Post");
+import express from "express";
+import Post from "../models/post.js";
 
+const router = express.Router();
 //this code is for creating a new blog post and i have integrated a try catch error handler
 router.post("/", async (req, res) => {
     const { title, content, author } = req.body;
     if (!title || !content) {
-      return res.status(400).json({ error: "Title and content are required" });
+      return res.status(400).json({ error: "Title, content and author are required" });
     }
     try {
       const newPost = await new Post({ title, content, author }).save();
@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
     }
   });
 
-  //this code is for 'get' post using the unique user ID
+  //this code is for 'get' post using the id
   router.get("/:id", async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
@@ -34,7 +34,6 @@ router.post("/", async (req, res) => {
       res.status(500).json({ error: "Error fetching post" });
     }
   });
-
 //this code is for updating the title and content of a blog post, the status codes for error are integrated
   router.put("/:id", async (req, res) => {
     try {
@@ -58,4 +57,4 @@ router.post("/", async (req, res) => {
     }
   });
   
-  module.exports = router;
+ export default router;

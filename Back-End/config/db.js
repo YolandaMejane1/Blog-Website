@@ -1,5 +1,5 @@
-const mongoose = require('mongoose'); //Here im importing mongoose for the database and placing a try catch error handler
-require("dotenv").config(); //loading the .env file
+import mongoose from "mongoose"; //Here im importing mongoose for the database and placing a try catch error handler
+import dotenv from "dotenv";//loading the .env file
 
 const connectDB = async () => {
     try {

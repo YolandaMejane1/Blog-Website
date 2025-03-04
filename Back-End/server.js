@@ -4,18 +4,19 @@
  * Adapted by: [Yolanda Mejane]
  */
 
-const express = require('express');
-const cors = require("cors");//enables cross origin sharing
-const connectDB = require("./config/db"); //importing the db function with error handling
+import express from "express";
+import cors from "cors";//enables cross origin sharing
+import connectDB from "./config/db"; //importing the db function with error handling
 require("dotenv").config(); //imports the link for mongoDB
+import postRoutes from './routes/users.routes.js';
 
 const app = express(); //creating the express for routers and API endpoints
 
 connectDB();//Mongo connecting point
-
 app.use(express.json());//this is express middleware
-//this fetches routes using the api base path
-const postRoutes = require('./routes/users.routes');
+app.use(cors());
+
+//this registers the routes with an api prefix
 app.use('/api/posts', postRoutes);
 
 //Testing routes
@@ -24,7 +25,7 @@ app.get("/",(req, res) => {
 });
 
 //starting server
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5002;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
