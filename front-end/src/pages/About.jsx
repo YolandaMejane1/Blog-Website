@@ -64,18 +64,14 @@ const About = () => {
         <h4 className="font-semibold">Meet Bongo!</h4>
         <p className="text-sm">The child friendly robot assisting kids with language and math problems.</p>
       </div>
-      <div className="bg-gray-100 p-6 rounded-lg">
-        <img src="https://images.unsplash.com/photo-1564865878688-9a244444042a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29kZXxlbnwwfHwwfHx8MA%3D%3D" alt="Tech News #3" className="w-full h-40 object-cover rounded-lg mb-4" />
-        <h4 className="font-semibold">Tech Socials! yey or nay?</h4>
-        <p className="text-sm">A list of our top social media channels for your code funzies.</p>
-      </div>
+      
     </div>
   </div>
 </section>
 
       
       <section className="mb-8">
-  <h3 className="text-xl font-semibold mb-4">Upcoming Tech Events</h3>
+  <h3 className="text-xl font-semibold mb-4 ml-5">Upcoming Tech Events...</h3>
   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
     <li className="bg-gray-100 p-4 rounded-lg">
       <h4 className="font-semibold">Tech Conference 2025</h4>

@@ -22,9 +22,11 @@ const PostView = () => {
   if (!post) return <p>Loading...</p>;
 
   return (
-    <div className="container py-8">
-      <h2 className="text-3xl font-bold">{post.title}</h2>
-      <p className="text-gray-600 mt-4">{post.content}</p>
+    <div className="container m-auto px-8 py-20">
+      <div className="max-w-3xl mx-auto p-10 bg-white rounded-lg shadow-lg border border-gray-300">
+        <h2 className="text-3xl font-bold text-center">{post.title}</h2>
+        <p className="text-gray-600 mt-4">{post.content}</p>
+      </div>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import Blogs from './pages/Blogs';
 import Create from './pages/Create';
 import PostView from './pages/PostView';
 import ContactUs from './components/ContactUs';
+import EditPost from './pages/EditPost';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/create" element={<Create />} />
+            <Route path="/edit/:id" element={<EditPost />} />
             <Route path="/post/:postId" element={<PostView />} />
           </Routes>
         </div>
