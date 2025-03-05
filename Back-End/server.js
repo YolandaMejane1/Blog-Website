@@ -6,9 +6,13 @@
 
 import express from "express";
 import cors from "cors";//enables cross origin sharing
-import connectDB from "./config/db"; //importing the db function with error handling
-require("dotenv").config(); //imports the link for mongoDB
+import connectDB from "./config/db.js"; //importing the db function with error handling
+import dotenv from "dotenv"; //imports the link for mongoDB
 import postRoutes from './routes/users.routes.js';
+
+//loading .env file
+dotenv.config();
+console.log(process.env.MONGO_URI);
 
 const app = express(); //creating the express for routers and API endpoints
 
