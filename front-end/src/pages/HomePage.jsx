@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { getAllPosts} from '../api/postApi';
-import Home from '../components/Home';
-import Navbar from '../components/Navbar';
 
-const Home = () => {
+
+const HomePage = () => {
     return (
         <div>
-            <Navbar />
-
+           
         </div>
     );
 };
 
-export default Home
+export default HomePage
