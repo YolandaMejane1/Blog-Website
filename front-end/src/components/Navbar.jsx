@@ -1,41 +1,50 @@
-import React from 'react';
+import React from "react";
 
 const Navbar = () => {
   return (
-    <header className="p-3 mb-3 border-bottom">
-      <div className="container">
-        <div className="d-flex align-items-center justify-content-between">
-          <ul className="nav">
-            <li><a href="#" className="nav-link px-2 link-secondary">Overview</a></li>
-            <li><a href="#" className="nav-link px-2 link-body-emphasis">Inventory</a></li>
-            <li><a href="#" className="nav-link px-2 link-body-emphasis">Customers</a></li>
-            <li><a href="#" className="nav-link px-2 link-body-emphasis">Products</a></li>
-          </ul>
+    <header className="p-4 border-b bg-white shadow-md">
+      <div className="container mx-auto flex items-center justify-between">
+        <ul className="flex space-x-6">
+          <li>
+            <a href="#" className="text-gray-700 hover:text-blue-600">About</a>
+          </li>
+          <li>
+            <a href="#" className="text-gray-700 hover:text-blue-600">Blog</a>
+          </li>
+          <li>
+            <a href="#" className="text-gray-700 hover:text-blue-600">Create Post</a>
+          </li>
+        </ul>
 
-          <a href="/" className="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none mx-auto">
-            <svg className="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-              <use xlinkHref="#bootstrap" />
-            </svg>
-            <span className="ms-2">Title</span>
-          </a>
+        <div className="flex items-center space-x-4">
+          <input
+            type="search"
+            className="border rounded-lg px-3 py-1 outline-none focus:ring-2 focus:ring-blue-300"
+            placeholder="Search..."
+          />
 
-          <div className="d-flex align-items-center">
-            <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-              <input type="search" className="form-control" placeholder="Search..." aria-label="Search" />
-            </form>
-
-            <div className="dropdown text-end">
-              <a href="#" className="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" className="rounded-circle" />
-              </a>
-              <ul className="dropdown-menu text-small">
-                <li><a className="dropdown-item" href="#">New project...</a></li>
-                <li><a className="dropdown-item" href="#">Settings</a></li>
-                <li><a className="dropdown-item" href="#">Profile</a></li>
-                <li><hr className="dropdown-divider" /></li>
-                <li><a className="dropdown-item" href="#">Sign out</a></li>
-              </ul>
-            </div>
+          <div className="relative">
+            <button className="focus:outline-none">
+              <img
+                src="https://github.com/mdo.png"
+                alt="Profile"
+                className="w-10 h-10 rounded-full border"
+              />
+            </button>
+            <ul className="absolute right-0 mt-2 w-40 bg-white border rounded-lg shadow-lg hidden">
+              <li>
+                <a href="#" className="block px-4 py-2 hover:bg-gray-100">Profile</a>
+              </li>
+              <li>
+                <a href="#" className="block px-4 py-2 hover:bg-gray-100">Settings</a>
+              </li>
+              <li>
+                <hr className="border-gray-300" />
+              </li>
+              <li>
+                <a href="#" className="block px-4 py-2 text-red-600 hover:bg-gray-100">Sign out</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
