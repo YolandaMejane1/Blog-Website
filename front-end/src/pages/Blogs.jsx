@@ -13,7 +13,7 @@ const Blogs = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:5002/api/posts');
+        const response = await axios.get('https://blog-website-7w3k.onrender.com/api/posts');
         setPosts(response.data);
       } catch (error) {
         console.error('Error fetching posts:', error);
@@ -32,7 +32,7 @@ const Blogs = () => {
 
   const deletePost = async (id) => {
     try {
-      await axios.delete(`http://localhost:5002/api/posts/${id}`);
+      await axios.delete(`https://blog-website-7w3k.onrender.com/api/posts/${id}`);
       setPosts(posts.filter(post => post._id !== id));
     } catch (error) {
       console.error('Error deleting post:', error);
