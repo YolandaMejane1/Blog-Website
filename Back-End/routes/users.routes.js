@@ -1,5 +1,5 @@
 import express from "express";
-import Post from "../models/post.js";
+import Post from "../../models/post.js";
 
 const router = express.Router();
 //this code is for creating a new blog post and i have integrated a try catch error handler

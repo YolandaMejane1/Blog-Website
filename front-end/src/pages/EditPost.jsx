@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from 'axios'; //this connects the frontend to the backend for fetching, creating, deleting and editing posts
 import { useNavigate, useParams } from 'react-router-dom';
 
 const EditPost = () => {
