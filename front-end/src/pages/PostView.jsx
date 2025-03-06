@@ -9,7 +9,7 @@ const PostView = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await axios.get(`http://localhost:5002/api/posts/${postId}`);
+        const response = await axios.get(`https://blog-website-7w3k.onrender.com/api/posts/${postId}`);
         setPost(response.data);
       } catch (error) {
         console.error('Error fetching post:', error);
