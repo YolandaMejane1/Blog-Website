@@ -16,7 +16,7 @@ const Create = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:5002/api/posts', newPost);
+      const response = await axios.post('https://blog-website-7w3k.onrender.com/api/posts', newPost);
       navigate('/blogs');
     } catch (error) {
       console.error('Error creating post:', error);
