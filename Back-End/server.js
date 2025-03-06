@@ -10,6 +10,8 @@ import connectDB from "./config/db.js"; //importing the db function with error h
 import dotenv from "dotenv"; //imports the link for mongoDB
 import postRoutes from './routes/users.routes.js';
 
+console.log("Current working directory:", process.cwd());
+
 //loading .env file
 dotenv.config();
 console.log(process.env.MONGO_URI);
