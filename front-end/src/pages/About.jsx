@@ -31,7 +31,7 @@ const About = () => {
     />
   </div>
   <div className="lg:w-full  pl-4 mt-4 lg:mt-0 py-5">
-    <h3 className="text-3xl font-semibold">Our Story</h3>
+    <h3 className="text-3xl font-semibold">Our Story...</h3>
     <p className="mt-2 text-gray-600">
       At KODEMOR, we are committed to providing valuable insights and fostering a community focused on tech education and development.
     </p>
@@ -54,7 +54,7 @@ const About = () => {
 </section>
 
 <section className="mb-8 w-screen">
-  <h3 className="text-2xl font-bold mb-4 ml-5">Latest Blogs</h3>
+  <h3 className="text-3xl font-semibold mb-4 ml-5">Latest Blogs</h3>
   <div className="overflow-hidden relative">
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 animate-marquee">
       <div className="bg-gray-100 p-6 rounded-lg">
@@ -89,7 +89,7 @@ const About = () => {
 
       <div className="bg-gray-100 p-6 rounded-lg">
         <img 
-          src="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGFydGlmaWNpYWwlMjBpbnRlbGxpZ2VuY2V8ZW58MHx8MHx8fDA%3D"
+          src="https://images.unsplash.com/photo-1558008258-3256797b43f3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fGV2ZW50fGVufDB8MHwwfHx8MA%3D%3D"
           alt="Tech News #4" 
           className="w-full h-40 object-cover rounded-lg mb-4" 
         />
