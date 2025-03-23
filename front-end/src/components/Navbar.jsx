@@ -11,8 +11,16 @@ const Navbar = () => {
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <header className="p-3 border-b bg-white shadow-md">
-      <div className="container mx-auto flex items-center justify-between">
+    <div>
+      <div className="bg-black text-white py-1 px-4">
+        <div className="flex justify-between items-center">
+          <div className="lg:text-lg md:text-md sm:text-xs italic underline ">Special Offer: Get Full Access to Exclusive Tech Events!</div>
+          <Link to="/subscribe" className="bg-white text-black px-6 py-1 rounded-lg text-sm font-semibold hover:bg-blue-200 transition sm:px-1">
+            Subscribe Now
+          </Link>
+        </div>
+      </div>
+      <div className=" flex items-center justify-between max-w-full mx-auto py-2 px-4 bg-transparent">
         <div className="text-xl font-semibold text-black">KODEMOR</div>
 
         <ul className="hidden md:flex space-x-6 text-md mt-3">
@@ -38,10 +46,10 @@ const Navbar = () => {
             <img
               src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
               alt="Profile"
-              className="w-8 h-8 rounded-full border"
+              className="w-8 h-8 rounded-full border "
             />
           </button>
-          <ul className={`absolute right-0 mt-2 w-32 bg-white border rounded-lg shadow-lg text-sm ${isDropdownOpen ? "block" : "hidden"}`}>
+          <ul className={`relative right-10 mr-0 w-32 bg-white border rounded-lg shadow-lg text-sm ${isDropdownOpen ? "block" : "hidden"}`}>
             <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Profile</a></li>
             <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Settings</a></li>
             <li><hr className="border-gray-300" /></li>
@@ -57,8 +65,9 @@ const Navbar = () => {
           <li><Link to="/Create" className="block py-2 text-black hover:text-gray-700">Create Post</Link></li>
         </ul>
       )}
-    </header>
+     </div>
   );
 };
+
 
 export default Navbar;
