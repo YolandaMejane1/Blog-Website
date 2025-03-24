@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import Logo from '../assets/round-icons-pH23lU99FVQ-unsplash.png';
@@ -7,7 +7,6 @@ import Logo from '../assets/round-icons-pH23lU99FVQ-unsplash.png';
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
 
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -36,17 +35,6 @@ const Navbar = () => {
           <li><Link to="/About" className="text-black hover:text-gray-700">About</Link></li>
           <li><Link to="/Blogs" className="text-black hover:text-gray-700">Blogs</Link></li>
           <li><Link to="/Create" className="text-black hover:text-gray-700">Create Post</Link></li>
-
-          {location.pathname === "/Blogs" && (
-            <li className="relative pl-4 w-38 bottom-2">
-              <FontAwesomeIcon icon={faSearch} className="absolute left-6 top-1/2 transform -translate-y-1/2 text-black text-xs" />
-              <input
-                type="text"
-                placeholder=" Search..."
-                className="w-full pl-6 pr-2 py-1 text-md border-b border-black focus:outline-none focus:ring-1 focus:ring-gray-100"
-              />
-            </li>
-          )}
         </ul>
 
         <button className="md:hidden text-gray-700" onClick={toggleMobileMenu}>

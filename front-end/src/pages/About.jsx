@@ -22,7 +22,7 @@ const About = () => {
   </div>
 </section>
  
-      <section className="flex flex-col lg:flex-row mb-8 w-screen">
+      <section className="flex flex-col lg:flex-row mb-8 w-screen ">
   <div className="lg:w-2/3">
     <img 
       src="https://images.unsplash.com/photo-1515169067868-5387ec356754?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG9mZmljZSUyMGV2ZW50fGVufDB8MHwwfHx8MA%3D%3D" 
@@ -30,7 +30,7 @@ const About = () => {
       className="w-full h-full py-5 px-5"
     />
   </div>
-  <div className="lg:w-full  pl-4 mt-4 lg:mt-0 py-5">
+  <div className="lg:w-screen  pl-4 mt-4 lg:mt-0 py-5 w-screen">
     <h3 className="text-3xl font-semibold">Our Story...</h3>
     <p className="mt-2 text-gray-600">
       At KODEMOR, we are committed to providing valuable insights and fostering a community focused on tech education and development.
