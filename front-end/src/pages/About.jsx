@@ -5,7 +5,7 @@ const About = () => {
     <div className="container">
       
       <section
-  className="relative h-[80vh] w-screen bg-cover bg-no-repeat bg-center text-white py-10 px-10 "
+  className="relative h-[70vh] w-screen bg-cover bg-no-repeat bg-center text-white py-10 px-10 "
   style={{ backgroundImage: "url('https://images.unsplash.com/photo-1596496181848-3091d4878b24?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}
 >
   <div className="absolute inset-0 bg-black opacity-50"></div>

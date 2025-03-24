@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import Logo from '../assets/round-icons-pH23lU99FVQ-unsplash.png';
@@ -7,6 +7,7 @@ import Logo from '../assets/round-icons-pH23lU99FVQ-unsplash.png';
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -15,7 +16,7 @@ const Navbar = () => {
     <div>
       <div className="bg-black text-white py-1 px-4">
         <div className="flex justify-between items-center">
-          <div className="lg:text-lg md:text-md sm:text-xs italic underline ">Special Offer: Get Full Access to Exclusive Tech Events!</div>
+          <Link to="/subscribe" className="lg:text-lg md:text-md sm:text-xs italic underline hover:text-orange">Special Offer: Get Full Access to Exclusive Tech Events!</Link>
           <Link to="/subscribe" className="bg-white text-black px-6 py-1 rounded-lg text-sm font-semibold hover:bg-orange transition sm:px-1">
             Subscribe Now
           </Link>
@@ -35,14 +36,17 @@ const Navbar = () => {
           <li><Link to="/About" className="text-black hover:text-gray-700">About</Link></li>
           <li><Link to="/Blogs" className="text-black hover:text-gray-700">Blogs</Link></li>
           <li><Link to="/Create" className="text-black hover:text-gray-700">Create Post</Link></li>
-          <li className="relative pl-4 w-38 bottom-2">
-            <FontAwesomeIcon icon={faSearch} className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-500 text-xs" />
-            <input
-              type="text"
-              placeholder=" Search..."
-              className="w-full  pl-6 pr-2 py-1.5 text-md border border-gray-200 rounded-3xl focus:outline-none focus:ring-1 focus:ring-blue-100"
-            />
-          </li>
+
+          {location.pathname === "/Blogs" && (
+            <li className="relative pl-4 w-38 bottom-2">
+              <FontAwesomeIcon icon={faSearch} className="absolute left-6 top-1/2 transform -translate-y-1/2 text-black text-xs" />
+              <input
+                type="text"
+                placeholder=" Search..."
+                className="w-full pl-6 pr-2 py-1 text-md border-b border-black focus:outline-none focus:ring-1 focus:ring-gray-100"
+              />
+            </li>
+          )}
         </ul>
 
         <button className="md:hidden text-gray-700" onClick={toggleMobileMenu}>
@@ -52,10 +56,10 @@ const Navbar = () => {
         <div className="relative hidden md:block">
   <button className="focus:outline-none">
     <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-      <Link to="/signup" className="px-4 py-1 bg-black text-white rounded-md hover:bg-gray-700 text-center">
+      <Link to="/signup" className="px-4 py-1 bg-black text-white rounded-md hover:underline text-center">
         Sign Up
       </Link>
-      <Link to="/login" className="px-4 py-1 bg-orange text-black rounded-md hover:text-white text-center">
+      <Link to="/login" className="px-4 py-1 bg-white text-black border border-black rounded-md hover:underline text-center">
         Login
       </Link>
     </div>
