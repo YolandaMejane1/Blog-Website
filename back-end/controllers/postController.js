@@ -2,7 +2,8 @@ import Post from '../models/postModel.js';
 
 export const createPost = async (req, res) => {
   try {
-    const { title, content, author, image_url } = req.body;
+    const { title, content, author } = req.body;
+    const image_url = req.file ? `/uploads/${req.file.filename}` : null;
     const newPost = await Post.create({
       title,
       content,
@@ -39,7 +40,8 @@ export const getPostById = async (req, res) => {
 
 export const updatePost = async (req, res) => {
   const { id } = req.params;
-  const { title, content, author, image_url } = req.body;
+  const { title, content, author } = req.body;
+  const image_url = req.file ? `/uploads/${req.file.filename}` : null;
   try {
     const post = await Post.findByPk(id);
     if (!post) {

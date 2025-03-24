@@ -5,21 +5,33 @@ import { useNavigate } from 'react-router-dom';
 const Create = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [author, setAuthor] = useState('');
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
+
+  const handleImageChange = (e) => {
+    setImage(e.target.files[0]);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newPost = {
-      title,
-      content,
-    };
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('content', content);
+    formData.append('author', author);
+    if (image) {
+      formData.append('image', image);
+    }
 
     try {
-      const response = await axios.post('https://blog-website-7w3k.onrender.com/api/posts', newPost);
+      await axios.post('http://localhost:5001/api/posts', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
       navigate('/blogs');
     } catch (error) {
       console.error('Error creating post:', error);
+      alert(error.response?.data?.message || 'An error occurred while uploading the image');
     }
   };
 
@@ -27,8 +39,8 @@ const Create = () => {
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="w-full max-w-lg p-8 bg-white rounded-lg shadow-xl border border-gray-300">
         <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Create Blog Post</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-6">
+        <form onSubmit={handleSubmit} encType="multipart/form-data">
+          <div className="mb-4">
             <label className="block text-lg font-medium text-gray-700" htmlFor="title">Title</label>
             <input
               type="text"
@@ -39,7 +51,18 @@ const Create = () => {
               required
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-4">
+            <label className="block text-lg font-medium text-gray-700" htmlFor="author">Author</label>
+            <input
+              type="text"
+              id="author"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              className="mt-2 p-3 w-full border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-600"
+              required
+            />
+          </div>
+          <div className="mb-4">
             <label className="block text-lg font-medium text-gray-700" htmlFor="content">Content</label>
             <textarea
               id="content"
@@ -48,6 +71,16 @@ const Create = () => {
               className="mt-2 p-3 w-full border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-600"
               rows="6"
               required
+            />
+          </div>
+          <div className="mb-6">
+            <label className="block text-lg font-medium text-gray-700" htmlFor="image">Upload Image</label>
+            <input
+              type="file"
+              id="image_url"
+              accept="image_url/*"
+              onChange={handleImageChange}
+              className="mt-2 p-2 w-full border border-gray-300 rounded-lg shadow-sm"
             />
           </div>
           <button

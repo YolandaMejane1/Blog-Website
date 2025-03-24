@@ -15,7 +15,7 @@ const Blogs = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('https://blog-website-7w3k.onrender.com/api/posts');
+        const response = await axios.get('http://localhost:5001/api/posts');
         setPosts(response.data);
         setFilteredPosts(response.data);
       } catch (error) {
@@ -45,9 +45,9 @@ const Blogs = () => {
 
   const deletePost = async (id) => {
     try {
-      await axios.delete(`https://blog-website-7w3k.onrender.com/api/posts/${id}`);
-      setPosts(posts.filter((post) => post._id !== id));
-      setFilteredPosts(filteredPosts.filter((post) => post._id !== id));
+      await axios.delete(`http://localhost:5001/api/posts/${id}`);
+      setPosts(posts.filter((post) => post.id !== id));
+      setFilteredPosts(filteredPosts.filter((post) => post.id !== id));
     } catch (error) {
       console.error('Error deleting post:', error);
     }
@@ -55,41 +55,56 @@ const Blogs = () => {
 
   return (
     <div className="w-screen mx-auto px-4 py-8">
-  <div className="flex justify-between items-center mb-6">
-    <h2 className="text-3xl font-bold sm:text-xl md:text-2xl">All Blog Posts</h2>
-    <div className="relative w-1/5 pr-2 sm:mr-2"> 
-      <FontAwesomeIcon
-        icon={faSearch}
-        className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black"
-      />
-      <input
-        type="text"
-        placeholder="Search"
-        value={searchTerm}
-        onChange={handleSearch}
-        className="w-full pl-10 pr-4 py-2 border-b border-black focus:outline-none focus:ring-0"
-      />
-    </div>
-  </div>
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-3xl font-bold sm:text-xl md:text-2xl">All Blog Posts</h2>
+        <div className="relative w-1/5 pr-2 sm:mr-2">
+          <FontAwesomeIcon
+            icon={faSearch}
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black"
+          />
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={handleSearch}
+            className="w-full pl-10 pr-4 py-2 border-b border-black focus:outline-none focus:ring-0"
+          />
+        </div>
+      </div>
 
       <div className="space-y-8">
         {currentPosts.length > 0 ? (
           currentPosts.map((post) => (
-            <div key={post._id} className="border border-gray-200 rounded-lg shadow-lg p-6">
-              <h3 className="text-2xl font-semibold mb-4">{post.title}</h3>
-              <p className="text-gray-600 mb-4">{post.content.slice(0, 150)}...</p>
-              <div className="flex justify-between items-center mt-4">
-                <div className="text-sm text-gray-500">By {post.author || 'Anonymous'}</div>
-                <div className="flex gap-4">
-                  <Link to={`/post/${post._id}`} className="text-blue-500 hover:underline">
-                    <FontAwesomeIcon icon={faExternalLinkAlt} />
-                  </Link>
-                  <button onClick={() => deletePost(post._id)} className="text-red-500 hover:underline">
-                    <FontAwesomeIcon icon={faTrashAlt} />
-                  </button>
-                  <Link to={`/edit/${post._id}`} className="text-yellow-500 hover:underline">
-                    <FontAwesomeIcon icon={faEdit} />
-                  </Link>
+            <div key={post.id} className="flex flex-col md:flex-row border border-gray-200 rounded-lg shadow-lg">
+              {post.image_url && (
+                <div className="w-full md:w-1/3">
+                  <img
+                    src={`http://localhost:5001${post.image_url}`}  
+                    alt={post.title}
+                    style={{ maxWidth: '100%' }}
+                    className="object-cover md:mr-4"
+                    onError={(e) => e.target.src = '/path/to/fallback-image.jpg'}
+                  />
+                </div>
+              )}
+              <div className="p-6 flex flex-col justify-between w-full md:w-2/3">
+                <div>
+                  <h3 className="text-2xl font-semibold mb-2">{post.title}</h3>
+                  <p className="text-gray-600 mb-4">{post.content.slice(0, 150)}...</p>
+                </div>
+                <div className="flex justify-between items-center mt-4">
+                  <div className="text-sm text-gray-500">By {post.author || 'Anonymous'}</div>
+                  <div className="flex gap-4">
+                    <Link to={`/post/${post.id}`} className="text-blue-500 hover:underline">
+                      <FontAwesomeIcon icon={faExternalLinkAlt} />
+                    </Link>
+                    <button onClick={() => deletePost(post.id)} className="text-red-500 hover:underline">
+                      <FontAwesomeIcon icon={faTrashAlt} />
+                    </button>
+                    <Link to={`/edit/${post.id}`} className="text-yellow-500 hover:underline">
+                      <FontAwesomeIcon icon={faEdit} />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -100,37 +115,37 @@ const Blogs = () => {
       </div>
 
       {filteredPosts.length > postsPerPage && (
-    <div className="flex justify-center items-center mt-8">
-      <nav aria-label="Pagination" className="flex items-center gap-2">
-        <button
-          onClick={() => currentPage > 1 && paginate(currentPage - 1)}
-          className="text-gray-700 hover:bg-gray-200 p-2 rounded-md"
-        >
-          <ChevronLeftIcon className="h-5 w-5" />
-        </button>
-        {[...Array(totalPages)].map((_, index) => (
-          <button
-            key={index}
-            onClick={() => paginate(index + 1)}
-            className={`px-4 py-2 text-sm font-semibold rounded-md ${
-              currentPage === index + 1
-                ? 'bg-orange text-white'
-                : 'text-gray-900 bg-white border border-gray-300 hover:bg-gray-100'
-            }`}
-          >
-            {index + 1}
-          </button>
-        ))}
-        <button
-          onClick={() => currentPage < totalPages && paginate(currentPage + 1)}
-          className="text-gray-700 hover:bg-gray-200 p-2 rounded-md"
-        >
-          <ChevronRightIcon className="h-5 w-5" />
-        </button>
-      </nav>
+        <div className="flex justify-center items-center mt-8">
+          <nav aria-label="Pagination" className="flex items-center gap-2">
+            <button
+              onClick={() => currentPage > 1 && paginate(currentPage - 1)}
+              className="text-gray-700 hover:bg-gray-200 p-2 rounded-md"
+            >
+              <ChevronLeftIcon className="h-5 w-5" />
+            </button>
+            {[...Array(totalPages)].map((_, index) => (
+              <button
+                key={index}
+                onClick={() => paginate(index + 1)}
+                className={`px-4 py-2 text-sm font-semibold rounded-md ${
+                  currentPage === index + 1
+                    ? 'bg-orange text-white'
+                    : 'text-gray-900 bg-white border border-gray-300 hover:bg-gray-100'
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+            <button
+              onClick={() => currentPage < totalPages && paginate(currentPage + 1)}
+              className="text-gray-700 hover:bg-gray-200 p-2 rounded-md"
+            >
+              <ChevronRightIcon className="h-5 w-5" />
+            </button>
+          </nav>
+        </div>
+      )}
     </div>
-  )}
-</div>
   );
 };
 
