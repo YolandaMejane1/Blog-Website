@@ -71,3 +71,4 @@ export const deletePost = async (req, res) => {
     res.status(500).json({ message: 'Error deleting post', error: error.message });
   }
 };
+

@@ -1,9 +1,13 @@
 import express from 'express';
 import multer from 'multer';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import { createPost, getAllPosts, getPostById, updatePost, deletePost } from '../controllers/postController.js';
 
 const router = express.Router();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -26,3 +30,4 @@ router.put('/posts/:id', updatePost);
 router.delete('/posts/:id', deletePost);
 
 export default router;
+

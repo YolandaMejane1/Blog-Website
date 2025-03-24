@@ -79,7 +79,7 @@ const Blogs = () => {
               {post.image_url && (
                 <div className="w-full md:w-1/3">
                   <img
-                    src={`http://localhost:5001${post.image_url}`}  
+                    src={`http://localhost:5001${post.image_url}`} 
                     alt={post.title}
                     style={{ maxWidth: '100%' }}
                     className="object-cover md:mr-4"
@@ -150,3 +150,4 @@ const Blogs = () => {
 };
 
 export default Blogs;
+
