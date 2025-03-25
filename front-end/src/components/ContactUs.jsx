@@ -24,7 +24,7 @@ const ContactUs = () => {
             <input type="checkbox" id="newsletter" className="mr-2" />
             <label htmlFor="newsletter" className="text-sm font-thin">Subscribe to our newsletter</label>
           </div>
-          <button className="mt-3 p-2 border border-white text-white bg-black w-60 hover:bg-gray-300 font-thin">
+          <button className="mt-3 p-2 border border-white text-white bg-black w-60 hover:bg-gray-700 font-thin">
             Subscribe
           </button>
         </div>
