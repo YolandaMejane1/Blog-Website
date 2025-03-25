@@ -55,9 +55,9 @@ const Blogs = () => {
 
   return (
     <div className="w-screen mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-3xl font-bold sm:text-xl md:text-2xl">All Blog Posts</h2>
-        <div className="relative w-1/5 pr-2 sm:mr-2">
+      <div className="flex justify-between items-center mb-6 px-8">
+        <h3 className="font-thin sm:text-sm md:text-2xl">All Blog Posts</h3>
+        <div className="relative sm:w-1/8 max-w-1/2">
           <FontAwesomeIcon
             icon={faSearch}
             className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black"
@@ -72,7 +72,7 @@ const Blogs = () => {
         </div>
       </div>
 
-      <div className="space-y-8">
+      <div className="space-y-8 px-8">
         {currentPosts.length > 0 ? (
           currentPosts.map((post) => (
             <div key={post.id} className="flex flex-col md:flex-row border border-gray-200 rounded-lg shadow-lg">
@@ -82,8 +82,8 @@ const Blogs = () => {
                     src={`http://localhost:5001${post.image_url}`} 
                     alt={post.title}
                     style={{ maxWidth: '100%' }}
-                    className="object-cover md:mr-4"
-                    onError={(e) => e.target.src = '/path/to/fallback-image.jpg'}
+                    className="object-cover h-72 w-full md:mr-4"
+                    onError={(e) => e.target.src = '/assets/nasa-Q1p7bh3SHj8-unsplash.jpg'}
                   />
                 </div>
               )}
