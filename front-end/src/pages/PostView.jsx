@@ -1,7 +1,6 @@
-
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import moment from 'moment';
 import { useParams } from 'react-router-dom';
 
 const PostView = () => {
@@ -22,12 +21,6 @@ const PostView = () => {
     fetchPost();
   }, [postId]);
 
-  useEffect(() => {
-    if (post) {
-      console.log('Post image URL:', post.image_url); 
-    }
-  }, [post]);
-
   if (!post) return <p>Loading...</p>;
 
   return (
@@ -40,12 +33,13 @@ const PostView = () => {
             className="w-full h-72 object-cover rounded-t-lg"
           />
         )}
-        <h2 className="text-3xl font-bold text-center mt-6">{post.title}</h2>
+        <h2 className="text-3xl font-bold text-left mt-6">{post.title}</h2>
+        <p className="text-sm text-gray-500 mb-2">{moment(post.created_at).format('MMMM D, YYYY')}</p>
         <p className="text-gray-600 mt-4">{post.content}</p>
+        <div className="text-sm text-gray-500 pt-20">By {post.author || 'Anonymous'}</div>
       </div>
     </div>
   );
 };
 
 export default PostView;
-

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import moment from 'moment';
 import { Link } from 'react-router-dom';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -56,7 +57,7 @@ const Blogs = () => {
   return (
     <div className="w-screen mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6 px-8">
-        <h3 className="font-thin sm:text-sm md:text-2xl">All Blog Posts</h3>
+        <h3 className="font-thin sm:text-sm md:text-2xl">All Posts</h3>
         <div className="relative sm:w-1/8 max-w-1/2">
           <FontAwesomeIcon
             icon={faSearch}
@@ -75,9 +76,9 @@ const Blogs = () => {
       <div className="space-y-8 px-8">
         {currentPosts.length > 0 ? (
           currentPosts.map((post) => (
-            <div key={post.id} className="flex flex-col md:flex-row border border-gray-200 rounded-lg shadow-lg">
+            <div key={post.id} className="flex flex-col md:flex-row border border-black">
               {post.image_url && (
-                <div className="w-full md:w-1/3">
+                <div className="w-full md:w-1/2">
                   <img
                     src={`http://localhost:5001${post.image_url}`} 
                     alt={post.title}
@@ -90,18 +91,20 @@ const Blogs = () => {
               <div className="p-6 flex flex-col justify-between w-full md:w-2/3">
                 <div>
                   <h3 className="text-2xl font-semibold mb-2">{post.title}</h3>
+                  <p className="text-sm text-gray-500 mb-2">{moment(post.created_at).format('MMMM D, YYYY')}</p>
                   <p className="text-gray-600 mb-4">{post.content.slice(0, 150)}...</p>
                 </div>
-                <div className="flex justify-between items-center mt-4">
+                
+                <div className="flex justify-between items-center mt-4 pt-2 border-t border-gray-300">
                   <div className="text-sm text-gray-500">By {post.author || 'Anonymous'}</div>
                   <div className="flex gap-4">
-                    <Link to={`/post/${post.id}`} className="text-blue-500 hover:underline">
+                    <Link to={`/post/${post.id}`} className="text-black hover:underline">
                       <FontAwesomeIcon icon={faExternalLinkAlt} />
                     </Link>
-                    <button onClick={() => deletePost(post.id)} className="text-red-500 hover:underline">
+                    <button onClick={() => deletePost(post.id)} className="text-black hover:underline">
                       <FontAwesomeIcon icon={faTrashAlt} />
                     </button>
-                    <Link to={`/edit/${post.id}`} className="text-yellow-500 hover:underline">
+                    <Link to={`/edit/${post.id}`} className="text-black hover:underline">
                       <FontAwesomeIcon icon={faEdit} />
                     </Link>
                   </div>
