@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import Logo from '../assets/round-icons-pH23lU99FVQ-unsplash.png';
+import Logo from '../assets/AdobeStock_591326907.jpeg';
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -40,7 +40,7 @@ const Navbar = () => {
             alt="Logo" 
             className="h-10 md:h-12 w-auto"
           />
-          <span className="text-2xl font-semibold text-black ml-0">KODEMOR</span>
+          <span className="text-2xl font-semibold text-black ml-2">KODEMOR</span>
         </div>
 
         <ul className="hidden md:flex space-x-12 text-lg mt-3 ml-auto">

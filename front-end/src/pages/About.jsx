@@ -21,7 +21,7 @@ const About = () => {
     <div className="container">
       <section
         className="relative h-[70vh] w-screen bg-cover bg-no-repeat bg-center text-white py-10 px-10"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1596496181848-3091d4878b24?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1484807352052-23338990c6c6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmxhY2slMjBhbmQlMjB3aGl0ZSUyMHRlY2h8ZW58MHwwfDB8fHww')" }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="max-w-6xl mx-auto mt-20 text-center relative z-10">
@@ -39,7 +39,7 @@ const About = () => {
       <section className="flex flex-col lg:flex-row mb-8 w-screen">
         <div className="lg:w-2/3">
           <img 
-            src="https://images.unsplash.com/photo-1515169067868-5387ec356754?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG9mZmljZSUyMGV2ZW50fGVufDB8MHwwfHx8MA%3D%3D" 
+            src="https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20%281%20of%201%29-5.jpg?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJsYWNrJTIwYW5kJTIwd2hpdGUlMjBvZmZpY2UlMjBtZWV0aW5nfGVufDB8MHwwfHx8MA%3D%3D" 
             alt="Main Image" 
             className="w-full h-full py-5 px-5"
           />
@@ -73,12 +73,12 @@ const About = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 animate-marquee">
             {posts.length > 0 ? (
               posts.slice(0, 4).map((post) => (
-                <div key={post.id} className="bg-gray-100 p-6 rounded-lg">
+                <div key={post.id} className="bg-gray-100 p-6 ">
                   {post.image_url && (
                     <img
                       src={`http://localhost:5001${post.image_url}`} 
                       alt={post.title}
-                      className="w-full h-40 object-cover rounded-lg mb-4"
+                      className="w-full h-40 object-cover mb-4"
                       onError={(e) => e.target.src = '/assets/nasa-Q1p7bh3SHj8-unsplash.jpg'}
                     />
                   )}
