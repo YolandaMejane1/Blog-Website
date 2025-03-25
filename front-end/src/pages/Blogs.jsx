@@ -132,7 +132,7 @@ const Blogs = () => {
                 onClick={() => paginate(index + 1)}
                 className={`px-4 py-2 text-sm font-semibold rounded-md ${
                   currentPage === index + 1
-                    ? 'bg-orange text-white'
+                    ? 'bg-black text-white'
                     : 'text-gray-900 bg-white border border-gray-300 hover:bg-gray-100'
                 }`}
               >
