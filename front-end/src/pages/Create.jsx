@@ -36,56 +36,59 @@ const Create = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-lg p-8 bg-white rounded-lg shadow-xl border border-gray-300">
-        <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Create Blog Post</h2>
+    <div
+      className="flex w-screen justify-center items-center min-h-screen bg-cover bg-center p-4"
+      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1459278558918-f94278c0f022?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}
+    >
+      <div className="w-full max-w-md p-6 bg-white bg-opacity-5 backdrop-blur-sm shadow-lg border border-gray-300">
+        <h2 className="text-2xl font-bold text-center mb-4 text-white">Create Blog Post</h2>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
-          <div className="mb-4">
-            <label className="block text-lg font-medium text-gray-700" htmlFor="title">Title</label>
+          <div className="mb-3">
+            <label className="block text-sm font-medium text-white" htmlFor="title">Title</label>
             <input
               type="text"
               id="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="mt-2 p-3 w-full border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-600"
+              className="mt-1 p-2 w-full border border-gray-300  bg-transparent text-white placeholder-gray-200 focus:ring-1 focus:ring-white"
               required
             />
           </div>
-          <div className="mb-4">
-            <label className="block text-lg font-medium text-gray-700" htmlFor="author">Author</label>
+          <div className="mb-3">
+            <label className="block text-sm font-medium text-white" htmlFor="author">Author</label>
             <input
               type="text"
               id="author"
               value={author}
               onChange={(e) => setAuthor(e.target.value)}
-              className="mt-2 p-3 w-full border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-600"
+              className="mt-1 p-2 w-full border border-gray-300  bg-transparent text-white placeholder-gray-200 focus:ring-1 focus:ring-white"
               required
             />
           </div>
-          <div className="mb-4">
-            <label className="block text-lg font-medium text-gray-700" htmlFor="content">Content</label>
+          <div className="mb-3">
+            <label className="block text-sm font-medium text-white" htmlFor="content">Content</label>
             <textarea
               id="content"
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              className="mt-2 p-3 w-full border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-600"
-              rows="6"
+              className="mt-1 p-2 w-full border border-gray-300  bg-transparent text-white placeholder-gray-200 focus:ring-1 focus:ring-white"
+              rows="4"
               required
             />
           </div>
-          <div className="mb-6">
-            <label className="block text-lg font-medium text-gray-700" htmlFor="image">Upload Image</label>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-white" htmlFor="image">Upload Image</label>
             <input
               type="file"
-              id="image_url"
-              accept="image_url/*"
+              id="image"
+              accept="image/*"
               onChange={handleImageChange}
-              className="mt-2 p-2 w-full border border-gray-300 rounded-lg shadow-sm"
+              className="mt-1 p-2 w-full border border-gray-300  bg-transparent text-white focus:ring-1 focus:ring-white"
             />
           </div>
           <button
             type="submit"
-            className="w-full py-3 text-white bg-black hover:bg-gray-800 rounded-lg text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-600"
+            className="w-full py-2 bg-white text-black text-md font-semibold  hover:bg-gray-300 focus:outline-none focus:ring-1 focus:ring-white"
           >
             Create Post
           </button>
@@ -96,4 +99,3 @@ const Create = () => {
 };
 
 export default Create;
-

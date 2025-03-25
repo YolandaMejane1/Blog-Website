@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import moment from 'moment';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const PostView = () => {
   const { postId } = useParams();
@@ -24,7 +24,10 @@ const PostView = () => {
   if (!post) return <p>Loading...</p>;
 
   return (
-    <div className="container m-auto px-8 py-20">
+    <div className="w-screen m-auto px-8 py-20">
+      <div className="mb-6">
+        <Link to="/blogs" className="text-black text-xl text-thin hover:underline pl-56">All Posts</Link>
+      </div>
       <div className="max-w-3xl mx-auto p-10 bg-white rounded-lg shadow-lg border border-gray-300">
         {post.image_url && (
           <img
