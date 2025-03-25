@@ -39,33 +39,33 @@ const EditPost = () => {
   };
 
   return (
-    <div className="container mx-auto py-24">
-      <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg border border-gray-300">
-        <h2 className="text-2xl font-bold mb-6 text-center">Edit Post</h2>
+    <div className="flex w-screen justify-center items-center min-h-screen bg-cover bg-center px-4" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1459278558918-f94278c0f022?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)' }}>
+      <div className="w-screen max-w-lg p-8 bg-white bg-opacity-5 backdrop-blur-sm shadow-xl border border-white">
+        <h2 className="text-2xl font-bold mb-6 text-center text-white">Edit Post</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-lg font-medium" htmlFor="title">Title</label>
+            <label className="block text-lg font-medium text-white" htmlFor="title">Title</label>
             <input
               type="text"
               id="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="mt-2 p-2 w-full border rounded"
+              className="mt-2 p-2 w-full border border-white bg-transparent text-white"
               required
             />
           </div>
           <div className="mb-4">
-            <label className="block text-lg font-medium" htmlFor="content">Content</label>
+            <label className="block text-lg font-medium text-white" htmlFor="content">Content</label>
             <textarea
               id="content"
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              className="mt-2 p-2 w-full border rounded"
+              className="mt-2 p-2 w-full border border-white bg-transparent text-white"
               rows="5"
               required
             />
           </div>
-          <button type="submit" className="bg-black text-white py-2 px-4 rounded w-full">Update Post</button>
+          <button type="submit" className="bg-white text-black py-2 px-4 w-full hover:bg-gray-300">Update Post</button>
         </form>
       </div>
     </div>

@@ -90,13 +90,13 @@ const Blogs = () => {
               )}
               <div className="p-6 flex flex-col justify-between w-full md:w-2/3">
                 <div>
-                  <h3 className="text-2xl font-semibold mb-2">{post.title}</h3>
+                  <h3 className="text-2xl font-normal mb-2">{post.title}</h3>
                   <p className="text-sm text-gray-500 mb-2">{moment(post.created_at).format('MMMM D, YYYY')}</p>
-                  <p className="text-gray-600 mb-4">{post.content.slice(0, 150)}...</p>
+                  <p className="text-black font-light mb-4">{post.content.slice(0, 150)}...</p>
                 </div>
                 
-                <div className="flex justify-between items-center mt-4 pt-2 border-t border-gray-300">
-                  <div className="text-sm text-gray-500">By {post.author || 'Anonymous'}</div>
+                <div className="flex justify-between items-center mt-4 pt-2 border-t border-black">
+                  <div className="text-sm text-black">By {post.author || 'Anonymous'}</div>
                   <div className="flex gap-4">
                     <Link to={`/post/${post.id}`} className="text-black hover:underline">
                       <FontAwesomeIcon icon={faExternalLinkAlt} />

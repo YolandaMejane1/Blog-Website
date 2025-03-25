@@ -25,10 +25,10 @@ const About = () => {
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="max-w-6xl mx-auto mt-20 text-center relative z-10">
-          <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold">
+          <h1 className="text-2xl sm:text-4xl md:text-6xl font-semibold">
             Explore. Create. <br /> Code. Innovate.
           </h1>
-          <p className="text-lg md:text-2xl mt-4">
+          <p className="text-lg md:text-2xl mt-4 font-light">
             Our blog is a space for innovators, developers, and tech enthusiasts to  
             share ideas, explore the latest technology trends, and dive deep into  
             the world of all things code.
@@ -45,35 +45,35 @@ const About = () => {
           />
         </div>
         <div className="lg:w-screen pl-4 mt-4 lg:mt-0 py-5 w-screen">
-          <h3 className="text-3xl font-semibold">Our Story...</h3>
-          <p className="mt-2 text-gray-600">
+          <h3 className="text-3xl font-normal">Our Story...</h3>
+          <p className="mt-2 text-gray-600 font-light">
             At KODEMOR, we are committed to providing valuable insights and fostering a community focused on tech education and development.
           </p>
 
-          <h4 className="text-l font-semibold mt-6">Who We Are</h4>
-          <p className="mt-2 text-gray-600">
+          <h4 className="text-l font-normal mt-6">Who We Are</h4>
+          <p className="mt-2 text-gray-600 font-light">
             We are a passionate group of developers and tech enthusiasts dedicated to empowering individuals with the knowledge and tools to thrive in tech.
           </p>
 
-          <h4 className="text-l font-semibold mt-6">Mission</h4>
-          <p className="mt-2 text-gray-600">
+          <h4 className="text-l mt-6 font-normal">Mission</h4>
+          <p className="mt-2 text-gray-600 font-light">
             Our mission is to form a supportive community to help individuals develop their skills and unlock new opportunities in the tech industry.
           </p>
 
-          <h4 className="text-l font-semibold mt-6">Vision</h4>
-          <p className="mt-2 text-gray-600">
+          <h4 className="text-l font-normal mt-6">Vision</h4>
+          <p className="mt-2 text-gray-600 font-light">
             We envision a future where everyone has access to the tools, knowledge, and networks they need to succeed in the tech world.
           </p>
         </div>
       </section>
 
       <section className="mb-8 w-screen">
-        <h3 className="text-3xl font-semibold mb-4 ml-5">Latest Blogs</h3>
-        <div className="overflow-hidden relative">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 animate-marquee">
+        <h3 className="text-3xl font-normal mb-4 ml-5">Latest Blogs</h3>
+        <div className="overflow-hidden relative ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 animate-marquee px-4">
             {posts.length > 0 ? (
               posts.slice(0, 4).map((post) => (
-                <div key={post.id} className="bg-gray-100 p-6 ">
+                <div key={post.id} className="bg-gray-100 p-2 border border-black">
                   {post.image_url && (
                     <img
                       src={`http://localhost:5001${post.image_url}`} 

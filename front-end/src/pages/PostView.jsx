@@ -24,22 +24,19 @@ const PostView = () => {
   if (!post) return <p>Loading...</p>;
 
   return (
-    <div className="w-screen m-auto px-8 py-20">
-      <div className="mb-6">
-        <Link to="/blogs" className="text-black text-xl text-thin hover:underline pl-56">All Posts</Link>
-      </div>
-      <div className="max-w-3xl mx-auto p-10 bg-white rounded-lg shadow-lg border border-gray-300">
+    <div className="flex w-screen justify-center items-center min-h-screen bg-cover bg-center px-4" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1459278558918-f94278c0f022?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)' }}>
+      <div className="w-full max-w-3xl p-4 bg-white bg-opacity-5 shadow-lg border border-white backdrop-blur-md">
         {post.image_url && (
           <img
             src={`http://localhost:5001${post.image_url}`}
             alt={post.title}
-            className="w-full h-72 object-cover rounded-t-lg"
+            className="w-full h-72 object-cover border-b border-white"
           />
         )}
-        <h2 className="text-3xl font-bold text-left mt-6">{post.title}</h2>
-        <p className="text-sm text-gray-500 mb-2">{moment(post.created_at).format('MMMM D, YYYY')}</p>
-        <p className="text-gray-600 mt-4">{post.content}</p>
-        <div className="text-sm text-gray-500 pt-20">By {post.author || 'Anonymous'}</div>
+        <h2 className="text-3xl font-bold text-left mt-6 text-white">{post.title}</h2>
+        <p className="text-sm text-white mb-2">{moment(post.created_at).format('MMMM D, YYYY')}</p>
+        <p className="text-white mt-4">{post.content}</p>
+        <div className="text-sm text-white pt-20">By {post.author || 'Anonymous'}</div>
       </div>
     </div>
   );

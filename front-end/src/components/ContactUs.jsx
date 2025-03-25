@@ -4,7 +4,7 @@ import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-sv
 
 const ContactUs = () => {
   return (
-    <div className="bg-black text-white p-8 w-full flex flex-col items-center">
+    <div className="bg-black text-white p-10 w-full flex flex-col items-center">
       <h2 className="text-3xl md:text-4xl font-thin mb-6 text-center">Code For Life</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 w-full max-w-4xl text-center gap-6 md:gap-0">
@@ -30,7 +30,7 @@ const ContactUs = () => {
         </div>
 
         <div className="flex justify-center items-center border-l md:border-l-white pl-4">
-          <p className="text-white font-thin">© 2025 by Kodemor. <br /> Code For Life</p>
+          <p className="text-white font-thin">© 2025 by Kodemor. <br /> Code For Life.</p>
         </div>
       </div>
     </div>

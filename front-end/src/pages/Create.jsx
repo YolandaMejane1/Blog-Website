@@ -41,7 +41,7 @@ const Create = () => {
       style={{ backgroundImage: "url('https://images.unsplash.com/photo-1459278558918-f94278c0f022?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}
     >
       <div className="w-full max-w-md p-6 bg-white bg-opacity-5 backdrop-blur-sm shadow-lg border border-gray-300">
-        <h2 className="text-2xl font-bold text-center mb-4 text-white">Create Blog Post</h2>
+        <h2 className="text-2xl font-thin text-center mb-4 text-white">Create Blog Post</h2>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           <div className="mb-3">
             <label className="block text-sm font-medium text-white" htmlFor="title">Title</label>
@@ -88,7 +88,7 @@ const Create = () => {
           </div>
           <button
             type="submit"
-            className="w-full py-2 bg-white text-black text-md font-semibold  hover:bg-gray-300 focus:outline-none focus:ring-1 focus:ring-white"
+            className="w-full py-2 bg-white text-black text-md font-light  hover:bg-gray-300 focus:outline-none focus:ring-1 focus:ring-white"
           >
             Create Post
           </button>

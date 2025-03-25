@@ -44,9 +44,9 @@ const Navbar = () => {
         </div>
 
         <ul className="hidden md:flex space-x-12 text-lg mt-3 ml-auto">
-          <li><Link to="/About" className="text-black hover:text-gray-700">Home</Link></li>
-          <li><Link to="/Blogs" className="text-black hover:text-gray-700">Blogs</Link></li>
-          <li><Link to="/Create" className="text-black hover:text-gray-700">Create Post</Link></li>
+          <li><Link to="/About" className="text-black font-light hover:text-gray-700">Home</Link></li>
+          <li><Link to="/Blogs" className="text-black font-light hover:text-gray-700">Blogs</Link></li>
+          <li><Link to="/Create" className="text-black font-light hover:text-gray-700">Create Post</Link></li>
         </ul>
 
         <button className="md:hidden text-gray-700" onClick={toggleMobileMenu}>
@@ -56,9 +56,9 @@ const Navbar = () => {
 
       {isMobileMenuOpen && (
         <ul className="md:hidden bg-white border-t flex flex-col space-y-2 py-3 text-center text-md">
-          <li><Link to="/About" className="block py-2 text-black hover:text-gray-700">Home</Link></li>
-          <li><Link to="/Blogs" className="block py-2 text-black hover:text-gray-700">Blog</Link></li>
-          <li><Link to="/Create" className="block py-2 text-black hover:text-gray-700">Create Post</Link></li>
+          <li><Link to="/About" className="block py-2 text-black font-light hover:text-gray-700">Home</Link></li>
+          <li><Link to="/Blogs" className="block py-2 text-black font-light hover:text-gray-700">Blog</Link></li>
+          <li><Link to="/Create" className="block py-2 text-black font-light hover:text-gray-700">Create Post</Link></li>
         </ul>
       )}
     </div>
