@@ -16,7 +16,7 @@ const Blogs = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/api/posts');
+        const response = await axios.get('https://blog-website-5-r5pv.onrender.com/api/posts');
         setPosts(response.data);
         setFilteredPosts(response.data);
       } catch (error) {
@@ -46,7 +46,7 @@ const Blogs = () => {
 
   const deletePost = async (id) => {
     try {
-      await axios.delete(`http://localhost:5001/api/posts/${id}`);
+      await axios.delete(`https://blog-website-5-r5pv.onrender.com/api/posts/${id}`);
       setPosts(posts.filter((post) => post.id !== id));
       setFilteredPosts(filteredPosts.filter((post) => post.id !== id));
     } catch (error) {
@@ -80,7 +80,7 @@ const Blogs = () => {
               {post.image_url && (
                 <div className="w-full md:w-1/2">
                   <img
-                    src={`http://localhost:5001${post.image_url}`} 
+                    src={`https://blog-website-5-r5pv.onrender.com${post.image_url}`} 
                     alt={post.title}
                     style={{ maxWidth: '100%' }}
                     className="object-cover h-72 w-full md:mr-4"

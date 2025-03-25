@@ -1,6 +1,6 @@
 import axios from 'axios'; // axioms link the backend to the frontend
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5001/api/posts';
+const API_URL = process.env.REACT_APP_API_URL || 'https://blog-website-5-r5pv.onrender.com/api/posts';
 // this is to get all posts
 export const getAllPosts = () => {
     return axios.get(API_URL);

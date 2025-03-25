@@ -7,7 +7,7 @@ const About = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/api/posts'); 
+        const response = await axios.get('https://blog-website-5-r5pv.onrender.com/api/posts'); 
         setPosts(response.data);
       } catch (error) {
         console.error('Error fetching posts:', error);
@@ -76,7 +76,7 @@ const About = () => {
                 <div key={post.id} className="bg-gray-100 p-2 border border-black">
                   {post.image_url && (
                     <img
-                      src={`http://localhost:5001${post.image_url}`} 
+                      src={`https://blog-website-5-r5pv.onrender.com${post.image_url}`} 
                       alt={post.title}
                       className="w-full h-40 object-cover mb-4"
                       onError={(e) => e.target.src = '/assets/nasa-Q1p7bh3SHj8-unsplash.jpg'}

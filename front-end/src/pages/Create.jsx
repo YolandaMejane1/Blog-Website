@@ -25,7 +25,7 @@ const Create = () => {
     }
 
     try {
-      await axios.post('http://localhost:5001/api/posts', formData, {
+      await axios.post('https://blog-website-5-r5pv.onrender.com/api/posts', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       navigate('/blogs');

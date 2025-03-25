@@ -11,7 +11,7 @@ const EditPost = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await axios.get(`http://localhost:5001/api/posts/${id}`);
+        const response = await axios.get(`https://blog-website-5-r5pv.onrender.com/api/posts/${id}`);
         setTitle(response.data.title);
         setContent(response.data.content);
       } catch (error) {
@@ -31,7 +31,7 @@ const EditPost = () => {
     };
 
     try {
-      await axios.put(`http://localhost:5001/api/posts/${id}`, updatedPost);
+      await axios.put(`https://blog-website-5-r5pv.onrender.com/api/posts/${id}`, updatedPost);
       navigate(`/post/${id}`);
     } catch (error) {
       console.error('Error updating post:', error);

@@ -10,7 +10,7 @@ const PostView = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await axios.get(`http://localhost:5001/api/posts/${postId}`);
+        const response = await axios.get(`https://blog-website-5-r5pv.onrender.com/api/posts/${postId}`);
         console.log('Fetched post data:', response.data); 
         setPost(response.data);
       } catch (error) {
@@ -28,7 +28,7 @@ const PostView = () => {
       <div className="w-full max-w-3xl p-4 bg-white bg-opacity-5 shadow-lg border border-white backdrop-blur-md">
         {post.image_url && (
           <img
-            src={`http://localhost:5001${post.image_url}`}
+            src={`https://blog-website-5-r5pv.onrender.com${post.image_url}`}
             alt={post.title}
             className="w-full h-72 object-cover border-b border-white"
           />
