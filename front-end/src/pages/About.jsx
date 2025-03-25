@@ -68,7 +68,7 @@ const About = () => {
       </section>
 
       <section className="mb-8 w-screen">
-        <h3 className="text-3xl font-normal mb-4 ml-5">Latest Blogs</h3>
+        <h3 className="text-3xl font-normal mb-4 ml-5">Latest Posts</h3>
         <div className="overflow-hidden relative ">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 animate-marquee px-4">
             {posts.length > 0 ? (
